@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>{% block head_title %}Noticias Umariana{% endblock %}</title>
+
+<style>
+{% block style %}{% endblock %}
+</style>
+
+{% include "head_css.html" %}  
+
+  </head>
+
+  <body>
+{% include "navbar.html" %} <!--Llama a la barra de navegacion desde navbar.html-->
+
+{% block jumbotron %} <!--llega el bloque llama jumbotron que se encuentra en inicio.html-->
+{% endblock %}
+<div class="container">
+  
+
+
+{% block content %} <!--aquí llega el bloque que hay en inicio.html-->
+{% endblock %}
+
+</div>
+
+
+{% include "javascript.html" %}
+  </body>
+</html>

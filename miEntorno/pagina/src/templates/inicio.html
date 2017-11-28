@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}<!--para llamar a crispy-->
+{% load static %}
+
+{% block head_title %}Bienvenidos | {{ block.super }}{% endblock %}
+
+<style>
+{% block style %}
+.jumbotron {
+  background-color: #1C7CC7 !important;/*color de fondo azul*/
+  color: #FFF !important;
+}
+
+/*.fa-5x {
+  font-size: 6em !important;
+}*/
+{% endblock %}
+</style>
+
+
+
+{% block jumbotron %}
+
+{% if request.user.is_staff %}
+<div class='container-fluid'>
+<table class='table'>
+  {% for instance in queryset %}
+  <tr><td>{{ instance }}</td><td>{{ instance.nombre }}</td><td>hace {{ instance.timestamp|timesince }}</td></tr><br/>
+  {% endfor %}
+</table>
+</div>
+{% else %}
+
+<div class="jumbotron">
+<div class="container">
+<div class='row'>
+  <div class='col-sm-6'>
+        <h2><strong>BIENVENIDO</strong></h2>
+        <p>Una Pagina con las ultimas actualizaciones de
+        la Universidad Mariana, unete y mantente actualizado
+        con nuestras noticias.</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="{% url 'registration_register' %}" role="button">Registrate &raquo;</a>
+        </p>
+  </div>
+<div class='col-sm-6'><iframe width="560" height="315" src="https://www.youtube.com/embed/sUdF6zJNUqQ" frameborder="0" allowfullscreen></iframe></div>
+</div>
+</div>
+</div>
+{% endif %}
+{% endblock %}
+
+
+{% block content %} <!--todo este bloque se va a enviar a base.html-->
+{% if not request.user.is_staff %}
+<div class="container">
+  <!--<div class="col-sm-3 col-xs-12 pull-north">
+    {% if not user.is_authenticated %}
+    <p class='lead text-align-center'>Subscribirte</p>
+		<form method="POST" action="">{% csrf_token %}
+		{{ el_form|crispy }}
+		<input class='btn btn-primary' type='submit' value='Confirmar' />
+		</form>
+    {% else %}
+    <p class='lead text-align-center'>{{ titulo }}<br/><br/><span class="fa-stack fa-4x">
+  <i class="fa fa-circle-thin fa-stack-2x"  style="color:#47b78c;"></i>
+  <i class="fa fa-hand-peace-o fa-stack-1x"></i>
+</span></p>
+    {% endif %}
+  </div>-->
+<div class='col-md-6'>
+  
+  <p class='lead text-align-center' class="img-responsive">
+  DIPLOMADO EN GESTIÓN TURÍSTICA PARA POTENCIALIZAR A NARIÑO
+  </p>
+  <p align="justify">Fortalecer el turismo del departamento de Nariño a través proyectos con el apoyo interinstitucional, fue el objetivo del Diplomado de Gestión Integral de Destinos Turísticos que se desarrolló en la Universidad Mariana gracias a la Universidad Externado de Colombia y la gestión de la Gobernación, Alcaldía de Pasto y gremios turísticos.
+
+ 
+De acuerdo a lo expresado por Paola Bacca, representante de Turismo de Nariño, con los conocimientos adquiridos en el diplomado se puede pensar en el desarrollo de estrategias de destinos turísticos donde la comunidad sea coparticipe y a partir de tres factores importantes: la planificación, la calidad y el mejoramiento de la competitividad. “Tenemos el potencial, el sector, la articulación institucional y lo que pretendemos es desarrollar todas estas riquezas para que Nariño sea potencial turístico a nivel nacional e internacional”.
+
+La funcionario destacó que la región cuenta con tres productos turísticos: naturaleza, cultura y sol y playa. En Naturaleza, el departamento tiene entrada a la Amazonía y cuenta con una ruta de aviturismo, en la cual según expertos está el 58% de las especies de aves, y por eso importante que Colombia y el mundo lo conozca.
+
+También se encuentra la ruta de volcanes y lagunas, la ruta de templos muy representativos , especialmente en época de Semana Santa; y la ruta de turismo y café. A esto se suma, el Carnaval de Negros y Blancos Patrimonio Cultural Inmaterial de la Humanidad declarado por la UNESCO.
+
+En el componente de sol y playa, Nariño cuenta con el puerto de Tumaco y a media hora está localizado la playa de Bocagrande con una biodiversidad e flora y fauna.
+
+El director del programa de Mercadeo, Silvio Andrés Jojoa, manifestó al respecto quela comunidad es importante en el proceso de articulación para explotar el turismo, teniendo en cuenta el compromiso con los lineamientos institucionales para recoger propuestas innovadoras de cada población. “Este diplomado fortalece lazos de los pueblos, conociendo sus necesidades y buscar mecanismos para brindar soluciones. Lo que hace falta es armar paquetes turísticos y darlos a conocer. En esta tarea nos encontramos con gente amante del turismo de municipios como: Ipiales, Buesaco, Linares, Sandoná, San Pablo, Remolino, Pasto, entre otros”.
+
+Desde la Universidad, el aporte es investigar para consolidar en el menor tiempo posibles proyectos turísticos viables para la región.<br/><br/></p>
+  <img src="http://www.instgeoscience.com/images/diplomado.jpg" width="400" height="300">
+</div>
+<div class='col-md-6'>
+
+<p class='lead text-align-center'>
+  PRIMER CONGRESO DE ORADORES, EXPERIENCIAS PARA APRENDER EL BUEN DISCURSO
+  </p>
+<p align="justify">
+  El programa de derecho de la Universidad Mariana, liderado por el docente Alejandro Benavides Ceballos desarrolló el Primer Congreso Iberoamericano de Oratoria y Liderazgo al que asistieron, principalmente, estudiantes y docentes de Derecho y Comunicación Social.
+
+Uno de los predicadores, en el auditorio Madre Caridad Brader de la Universidad Mariana fue el abogado Marcelo Aguilera proveniente de Loja Ecuador, quien hace parte del foro de oradores de ese país y es miembro de la casa de la cultura ecuatoriana, núcleo de Loja.
+
+ 
+El profesional habló acerca de “la oratoria como herramienta en el acceso a la administración de justicia”, consideró que esta aptitud es un elemento comunicativo que acerca a la sociedad, motiva el liderazgo y permite una comunicación efectiva frente a la comunidad. Aseguró que la oratoria es una necesidad existencial, pues cada ser humano debe ser un orador para que razone y se exprese por el mismo.
+
+En el congreso también estuvo el orador Fernando Dalgo Ballesteros, de la ciudad de Tena Ecuador con el tema “Grandes oradores, pésimos lideres: los valores en la oratoria como eje fundamental para cambiar positivamente al mundo”. Reconoció que la oratoria es una herramienta positiva para construir. Dentro del liderazgo es importante esta habilidad para mirar qué proyecta una persona.
+</p>
+<img src="http://lafabricadediscursos.com/images/cursos/creacion-discurso.jpg"  width="400" height="300">
+</div>
+</div>
+
+
+
+<hr/>
+{% endif %}
+{% endblock %}
+
